@@ -1,4 +1,4 @@
-package jp.gr.java_conf.genzo.blog.java.init;
+package jp.gr.java_conf.genzo.java.sample.init;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;

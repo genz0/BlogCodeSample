@@ -1,4 +1,4 @@
-package jp.gr.java_conf.genzo.blog.java.collection;
+package jp.gr.java_conf.genzo.java.sample.collection;
 
 import java.util.Date;
 import java.util.concurrent.DelayQueue;

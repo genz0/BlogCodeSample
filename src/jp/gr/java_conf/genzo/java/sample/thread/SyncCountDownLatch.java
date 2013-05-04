@@ -1,4 +1,4 @@
-package jp.gr.java_conf.genzo.blog.java.thread;
+package jp.gr.java_conf.genzo.java.sample.thread;
 
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
