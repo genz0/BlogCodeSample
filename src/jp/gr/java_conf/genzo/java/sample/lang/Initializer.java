@@ -1,15 +1,10 @@
-package jp.gr.java_conf.genzo.java.sample.init;
+package jp.gr.java_conf.genzo.java.sample.lang;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * 
- */
-
-/**
- * @author genzo
  * 
  */
 public class Initializer {
