@@ -41,6 +41,7 @@ public class InitializeSet {
 		new InitializeSet().print();
 		// 出力結果。HashSetなので順不同
 		// [aaa, ddd, ccc, bbb]
+		// [1, 2, 3, 4]
 	}
 	
 	@SafeVarargs
