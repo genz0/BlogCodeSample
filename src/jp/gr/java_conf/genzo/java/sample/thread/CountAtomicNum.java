@@ -5,44 +5,35 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class CountAtomicNum {
 
-	static private AtomicInteger totalCount = new AtomicInteger(0);
+	// カウント
+	private AtomicInteger totalCount = new AtomicInteger(0);
 
-	/**
-	 * @param args
-	 * @throws InterruptedException
-	 */
-	public static void main(String[] args) throws InterruptedException {
+	public int geTotalCount() {
+		return totalCount.get();
+	}
 
-		// スレッドのインスタンスを生成する
+	// 乱数を生成する
+	private static final Random RANDOM = new Random();
+
+	public void execute() throws InterruptedException {
 		Task[] task = new Task[100];
+		// スレッドのインスタンスを生成する
 		for (int i = 0; i < task.length; i++) {
 			task[i] = new Task(i);
 		}
 
-		// スレッドを起動する
+		// スレッドを開始する。
 		for (int i = 0; i < task.length; i++) {
 			task[i].start();
 		}
 
-		// スレッドの終了を待ち合わせる
+		// 終了待機。
 		for (int i = 0; i < task.length; i++) {
 			task[i].join();
 		}
-
-		// トータルを表示する
-		System.out.println("totalCount = " + totalCount.get());
-
 	}
 
-	/**
-	 * 
-	 * @author genzo
-	 * 
-	 */
-	static class Task extends Thread {
-
-		// 乱数を生成する
-		static Random RANDOM = new Random();
+	class Task extends Thread {
 
 		Task(int num) {
 			// スレッド名を指定する
@@ -57,7 +48,7 @@ public class CountAtomicNum {
 				int wait = RANDOM.nextInt(1000);
 				Thread.sleep(wait);
 
-				// インクリメントする。AtomicIntegerなので排他制御しなくてもシリアライズされる
+				// インクリメントする。
 				int result = totalCount.incrementAndGet();
 				System.out.println(getName() + " = " + result);
 
@@ -65,6 +56,19 @@ public class CountAtomicNum {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public static void main(String[] args) throws InterruptedException {
+
+		// インスタンスを生成
+		CountNoCare semaphore = new CountNoCare();
+
+		// スレッドを実行
+		semaphore.execute();
+
+		// バリアポイントに達するまで実行されない
+		System.out.println("totalCount = " + semaphore.geTotalCount());
+
 	}
 
 }

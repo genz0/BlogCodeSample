@@ -1,8 +1,9 @@
 package jp.gr.java_conf.genzo.java.sample.thread;
 
 import java.util.Random;
+import java.util.concurrent.Semaphore;
 
-public class CountNoCare {
+public class CountSemaphore {
 
 	// カウント
 	private int totalCount = 0;
@@ -13,6 +14,9 @@ public class CountNoCare {
 
 	// 乱数を生成する
 	private static final Random RANDOM = new Random();
+
+	// 同実行制御を1で管理
+	private static final Semaphore LOCK = new Semaphore(1);
 
 	public void execute() throws InterruptedException {
 		Task[] task = new Task[100];
@@ -47,12 +51,19 @@ public class CountNoCare {
 				int wait = RANDOM.nextInt(1000);
 				Thread.sleep(wait);
 
+				// ロックを取得する
+				LOCK.acquire();
+
 				// インクリメントする。
 				totalCount++;
 				System.out.println(getName() + " = " + totalCount);
 
+
 			} catch (InterruptedException e) {
 				e.printStackTrace();
+			}finally{
+				// ロックを開放する
+				LOCK.release();
 			}
 		}
 	}
@@ -60,7 +71,7 @@ public class CountNoCare {
 	public static void main(String[] args) throws InterruptedException {
 
 		// インスタンスを生成
-		CountNoCare semaphore = new CountNoCare();
+		CountSemaphore semaphore = new CountSemaphore();
 
 		// スレッドを実行
 		semaphore.execute();
