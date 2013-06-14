@@ -23,10 +23,10 @@ public class TryFinally {
 			}
 		}
 
+		//Hoge2,Hoge1はAutoCloseableなので、try-with-resources形式にできる
 		try (Hoge2 hoge2 = new Hoge2(); Hoge1 hoge1 = new Hoge1();) {
 			hoge1.execute();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
