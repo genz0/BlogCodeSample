@@ -15,8 +15,10 @@ public class Initializer {
 	public static void main(String[] args) {
 
 		System.out.println("0000");
+		@SuppressWarnings("unused")
 		String aaa = StaticInitClass.aaa;
 		System.out.println("1111");
+		@SuppressWarnings("unused")
 		String bbb = StaticInitClass.bbb;
 		System.out.println("2222");
 		new StaticInitClass();
@@ -78,6 +80,7 @@ public class Initializer {
 
 	static class SetInitClass {
 
+		@SuppressWarnings("unused")
 		final private Collection<Integer> set1;
 		{
 			Set<Integer> set = new HashSet<Integer>();
@@ -87,6 +90,7 @@ public class Initializer {
 			set1 = Collections.unmodifiableCollection(set);
 		}
 
+		@SuppressWarnings("unused")
 		final private Collection<Integer> set2;
 		{
 			Set<Integer> set = new HashSet<Integer>();

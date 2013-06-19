@@ -1,7 +1,6 @@
 package jp.gr.java_conf.genzo.java.sample.thread;
 
 import java.util.Random;
-import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class CountReentrantLock {
