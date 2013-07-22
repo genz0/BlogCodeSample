@@ -1,0 +1,17 @@
+[
+    {
+        "stat": "Red",
+        "message": "とまれ",
+        "next": "Blue"
+    },
+    {
+        "stat": "Yellow",
+        "message": "とまっとけ",
+        "next": "Red"
+    },
+    {
+        "stat": "Invalid",
+        "message": "すすんでもいいよ",
+        "next": "Yellow"
+    }
+]

@@ -1,0 +1,17 @@
+[
+    {
+        "stat": 0,
+        "message": "とまれ",
+        "next": 2
+    },
+    {
+        "stat": 1,
+        "message": "とまっとけ",
+        "next": 0
+    },
+    {
+        "stat": 100,
+        "message": "すすんでもいいよ",
+        "next": 1
+    }
+]
